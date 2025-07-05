@@ -1,16 +1,17 @@
-# 🤖 WhatsApp Bot com OpenAI
+# 🌤️ Bot de Previsão do Tempo para WhatsApp
 
-Bot inteligente para WhatsApp que utiliza a API da OpenAI para responder perguntas automaticamente. O bot mantém contexto de conversas e possui comandos úteis para uma experiência completa.
+Bot especializado em previsão do tempo para WhatsApp que utiliza a API da OpenAI e OpenWeatherMap para fornecer informações meteorológicas precisas e em tempo real para qualquer lugar do mundo.
 
 ## ✨ Funcionalidades
 
-- 🧠 **Respostas Inteligentes**: Utiliza GPT-3.5/GPT-4 para gerar respostas contextuais
-- 💬 **Contexto de Conversa**: Mantém histórico de conversas para respostas mais precisas
-- 🔧 **Comandos Úteis**: Sistema de comandos para controle do bot
+- 🌍 **Previsão Global**: Dados meteorológicos para qualquer cidade do mundo
+- 🌡️ **Informações Completas**: Temperatura, sensação térmica, máxima/mínima, umidade
+- ☀️ **Condições do Tempo**: Estado do céu, vento, visibilidade e pressão atmosférica
+- 📈 **Previsão Detalhada**: Previsão por horas para o dia atual
+- 🤖 **IA Conversacional**: Fluxo natural de conversa com OpenAI
 - 📱 **Fácil Configuração**: QR Code para conectar rapidamente
-- 🔒 **Seguro**: Suporte a autenticação multi-arquivo
+- � **Reconexão Automática**: Reconecta automaticamente em caso de desconexão
 - 📊 **Logs Detalhados**: Sistema de logging para monitoramento
-- ⚡ **Reconexão Automática**: Reconecta automaticamente em caso de desconexão
 
 ## 🚀 Instalação
 
@@ -18,6 +19,7 @@ Bot inteligente para WhatsApp que utiliza a API da OpenAI para responder pergunt
 
 - Node.js 16+ instalado
 - Conta na OpenAI com API Key
+- Conta no OpenWeatherMap com API Key (gratuita)
 - WhatsApp instalado no celular
 
 ### Passo a Passo
@@ -40,8 +42,9 @@ cp .env.example .env
 
 4. **Edite o arquivo .env** com suas configurações:
 ```env
-OPENAI_API_KEY=sua_api_key_aqui
-BOT_NAME=Seu Bot AI
+OPENAI_API_KEY=sua_api_key_da_openai
+WEATHER_API_KEY=sua_api_key_do_openweathermap
+BOT_NAME=Bot Previsão do Tempo
 OPENAI_MODEL=gpt-3.5-turbo
 ```
 
@@ -52,12 +55,28 @@ npm start
 
 6. **Escaneie o QR Code** que aparecerá no terminal com seu WhatsApp
 
+## 🌤️ Como Usar
+
+### Fluxo da Conversa
+1. **Cumprimento**: O bot se apresenta e pergunta pela cidade
+2. **Cidade**: Você informa a cidade (ex: "São Paulo, SP, Brasil")
+3. **Previsão**: Bot mostra temperatura, condições e detalhes
+4. **Detalhes**: Pergunta se você quer informações mais detalhadas
+5. **Finalização**: Agradece e se despede amigavelmente
+
+### Exemplos de Mensagens
+- "Rio de Janeiro, RJ"
+- "Londres, Inglaterra" 
+- "New York, USA"
+- "Tokyo, Japan"
+- "São Paulo, SP, Brasil"
+
 ## 📋 Comandos Disponíveis
 
 - `/help` ou `/ajuda` - Mostra lista de comandos
 - `/sobre` - Informações sobre o bot
-- `/limpar` - Limpa histórico da conversa
-- Qualquer outra mensagem será processada pela IA
+- `/limpar` - Reinicia a conversa
+- Qualquer nome de cidade será processado como consulta de clima
 
 ## 🔧 Configuração Avançada
 
@@ -66,10 +85,11 @@ npm start
 | Variável | Descrição | Padrão |
 |----------|-----------|---------|
 | `OPENAI_API_KEY` | Chave da API OpenAI | *obrigatório* |
+| `WEATHER_API_KEY` | Chave da API OpenWeatherMap | *obrigatório* |
 | `OPENAI_MODEL` | Modelo a ser usado | `gpt-3.5-turbo` |
-| `OPENAI_MAX_TOKENS` | Máximo de tokens por resposta | `1000` |
+| `OPENAI_MAX_TOKENS` | Máximo de tokens por resposta | `1500` |
 | `OPENAI_TEMPERATURE` | Criatividade das respostas (0-1) | `0.7` |
-| `BOT_NAME` | Nome do bot | `WhatsApp AI Bot` |
+| `BOT_NAME` | Nome do bot | `Bot Previsão do Tempo` |
 | `LOG_LEVEL` | Nível de log | `info` |
 
 ### Modelos Disponíveis

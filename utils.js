@@ -61,25 +61,34 @@ function processCommand(command, args, userId) {
   switch (command) {
     case 'help':
     case 'ajuda':
-      return `🤖 *${config.bot.name}*\n\n` +
+      return `🌤️ *${config.bot.name}*\n\n` +
              `Comandos disponíveis:\n` +
              `• ${config.bot.prefix}help - Mostra esta mensagem\n` +
-             `• ${config.bot.prefix}limpar - Limpa o histórico da conversa\n` +
+             `• ${config.bot.prefix}limpar - Reinicia a conversa\n` +
              `• ${config.bot.prefix}sobre - Informações sobre o bot\n\n` +
-             `Ou simplesmente envie uma mensagem que eu responderei usando inteligência artificial! 🧠`;
+             `🌍 **Como usar:**\n` +
+             `Simplesmente me envie o nome de uma cidade e eu te darei a previsão do tempo completa!\n\n` +
+             `📍 **Exemplo:** "São Paulo, SP" ou "Rio de Janeiro"`;
     
     case 'sobre':
     case 'about':
-      return `🤖 *${config.bot.name}*\n\n` +
+      return `🌤️ *${config.bot.name}*\n\n` +
              `${config.bot.description}\n\n` +
-             `Powered by OpenAI GPT\n` +
-             `Versão: 1.0.0`;
+             `🌍 Previsão do tempo para qualquer lugar do mundo\n` +
+             `☀️ Informações em tempo real\n` +
+             `📊 Dados detalhados e precisos\n\n` +
+             `Powered by OpenWeatherMap & OpenAI\n` +
+             `Versão: 2.0.0`;
     
     case 'limpar':
     case 'clear':
+    case 'reiniciar':
+    case 'restart':
       const { clearHistory } = require('./openai');
       clearHistory(userId);
-      return '🧹 Histórico da conversa limpo! Podemos começar uma nova conversa.';
+      return '🔄 Conversa reiniciada!\n\n' +
+             '👋 Olá! Sou seu assistente especialista em previsão do tempo! 🌤️\n\n' +
+             'Para qual cidade, estado e país você gostaria de saber a previsão do tempo? 📍';
     
     default:
       return null;

@@ -1,18 +1,19 @@
-# ✅ PROJETO COMPLETO: WhatsApp Bot com OpenAI
+# ✅ PROJETO COMPLETO: Bot de Previsão do Tempo para WhatsApp
 
 ## 🎯 Resumo do Projeto
 
-Este projeto foi criado com sucesso e inclui um bot completo para WhatsApp integrado com a API da OpenAI. O bot pode responder perguntas usando inteligência artificial e manter contexto de conversas.
+Este projeto foi criado com sucesso e inclui um bot especializado em previsão do tempo para WhatsApp. O bot utiliza as APIs da OpenAI e OpenWeatherMap para fornecer informações meteorológicas precisas e em tempo real, seguindo um fluxo conversacional amigável e natural.
 
 ## 📁 Estrutura do Projeto Criada
 
 ```
-whatsapp-openai-bot/
+whatsapp-weather-bot/
 ├── 📋 package.json           # Configuração do projeto Node.js
-├── 🤖 index.js               # Arquivo principal do bot
-├── 🧠 openai.js              # Integração com API OpenAI
+├── 🤖 index.js               # Arquivo principal do bot WhatsApp
+├── 🧠 openai.js              # Lógica conversacional com OpenAI
+├── 🌤️ weather.js             # Integração com OpenWeatherMap API
 ├── 🔧 config.js              # Configurações centralizadas
-├── 🛠️ utils.js               # Funções utilitárias
+├── 🛠️ utils.js               # Funções utilitárias e comandos
 ├── ⚙️ setup.js               # Script de configuração interativo
 ├── 🧪 test-bot.js            # Script de teste da integração
 ├── 📖 example-usage.js       # Exemplos de uso do bot
@@ -49,12 +50,15 @@ npm start
 
 ### ✅ Funcionalidades Principais
 - [x] **Integração WhatsApp**: Conexão completa com WhatsApp Web
-- [x] **API OpenAI**: Integração com GPT-3.5/GPT-4
-- [x] **Contexto de Conversa**: Mantém histórico por usuário
+- [x] **API OpenWeatherMap**: Dados meteorológicos em tempo real
+- [x] **IA Conversacional**: Fluxo natural de conversa com OpenAI
+- [x] **Previsão Completa**: Temperatura, sensação térmica, condições do céu
+- [x] **Detalhes Meteorológicos**: Umidade, vento, pressão, visibilidade
+- [x] **Previsão por Horas**: Previsão detalhada para o dia atual
+- [x] **Cobertura Global**: Funciona para qualquer cidade do mundo
 - [x] **Sistema de Comandos**: Comandos úteis (/help, /sobre, /limpar)
 - [x] **Reconexão Automática**: Reconecta em caso de desconexão
 - [x] **Logs Detalhados**: Sistema de logging completo
-- [x] **Configuração Flexível**: Variáveis de ambiente personalizáveis
 
 ### ✅ Scripts e Utilitários
 - [x] **Script de Configuração**: Interface interativa para setup

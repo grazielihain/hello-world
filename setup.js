@@ -14,7 +14,7 @@ function question(query) {
 }
 
 async function setupBot() {
-  console.log('🤖 Configuração do WhatsApp Bot com OpenAI\n');
+  console.log('🌤️ Configuração do Bot de Previsão do Tempo\n');
   
   try {
     // Verificar se o arquivo .env já existe
@@ -29,12 +29,21 @@ async function setupBot() {
     // Solicitar API Key da OpenAI
     const apiKey = await question('Digite sua API Key da OpenAI: ');
     if (!apiKey.trim()) {
-      console.log('❌ API Key é obrigatória!');
+      console.log('❌ API Key da OpenAI é obrigatória!');
+      process.exit(1);
+    }
+
+    // Solicitar API Key do OpenWeatherMap
+    console.log('\n🌤️ Para buscar dados de clima, precisamos de uma API Key do OpenWeatherMap');
+    console.log('Você pode obter gratuitamente em: https://openweathermap.org/api');
+    const weatherApiKey = await question('Digite sua API Key do OpenWeatherMap: ');
+    if (!weatherApiKey.trim()) {
+      console.log('❌ API Key do OpenWeatherMap é obrigatória!');
       process.exit(1);
     }
 
     // Solicitar nome do bot
-    const botName = await question('Nome do bot (padrão: WhatsApp AI Bot): ') || 'WhatsApp AI Bot';
+    const botName = await question('Nome do bot (padrão: Bot Previsão do Tempo): ') || 'Bot Previsão do Tempo';
 
     // Solicitar modelo
     console.log('\nModelos disponíveis:');
@@ -58,9 +67,12 @@ async function setupBot() {
     const envContent = `# Configurações da API OpenAI
 OPENAI_API_KEY=${apiKey}
 
+# Configurações da API de Clima
+WEATHER_API_KEY=${weatherApiKey}
+
 # Configurações do Bot
 BOT_NAME=${botName}
-BOT_DESCRIPTION=Bot inteligente powered by OpenAI
+BOT_DESCRIPTION=Bot especialista em previsão do tempo powered by OpenAI
 
 # Configurações do OpenAI
 OPENAI_MODEL=${model}
@@ -79,11 +91,16 @@ LOG_LEVEL=info
     console.log('1. Execute: npm install');
     console.log('2. Execute: npm start');
     console.log('3. Escaneie o QR Code com seu WhatsApp');
+    console.log('4. Envie o nome de uma cidade para testar!');
     console.log('\nComandos disponíveis:');
     console.log('- /help - Lista de comandos');
     console.log('- /sobre - Informações do bot');
-    console.log('- /limpar - Limpar histórico');
-    console.log('\n🎉 Seu bot está pronto para uso!');
+    console.log('- /limpar - Reiniciar conversa');
+    console.log('\n🌤️ Exemplos de uso:');
+    console.log('- "São Paulo, SP"');
+    console.log('- "Rio de Janeiro, Brasil"'); 
+    console.log('- "New York, USA"');
+    console.log('\n🎉 Seu bot de previsão do tempo está pronto!');
 
   } catch (error) {
     console.error('❌ Erro durante a configuração:', error.message);
